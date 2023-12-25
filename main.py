@@ -1,30 +1,21 @@
-import pyperclip
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyperclip Web App</title>
+</head>
+<body>
+    <h1>Pyperclip Web App</h1>
 
-def copy_message(message):
-    pyperclip.copy(message)
-    print(f'Message copied: {message}')
+    <form action="/copy" method="post">
+        <label for="message">Enter a message:</label>
+        <input type="text" id="message" name="message" required>
+        <button type="submit">Copy</button>
+    </form>
 
-def paste_message():
-    message = pyperclip.paste()
-    print(f'Pasted message: {message}')
-    return message
+    <p><a href="/paste" target="_blank">Paste the copied message</a></p>
+</body>
+</html>
 
-if __name__ == "__main__":
-    while True:
-        print("Options:")
-        print("1. Copy message")
-        print("2. Paste message")
-        print("3. Exit")
-
-        choice = input("Enter your choice (1/2/3): ")
-
-        if choice == '1':
-            message_to_copy = input("Enter the message to copy: ")
-            copy_message(message_to_copy)
-        elif choice == '2':
-            pasted_message = paste_message()
-        elif choice == '3':
-            print("Exiting the script.")
-            break
-        else:
-            print("Invalid choice. Please enter 1, 2, or 3.")
